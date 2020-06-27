@@ -17,12 +17,12 @@ class Dashboard extends Component {
   
   render() {
     const { navigation, settings } = this.props;
-    const WatchIcon = settings['watch'].icon;
+    const WatchIcon = settings['clock'].icon;
     const TimerIcon = settings['timer'].icon;
-    const WeaterIcon = settings['weater'].icon;
+    const WeatherIcon = settings['weather'].icon;
     const AniIcon = settings['animation'].icon;
     const SettingsIcon = settings['settings'].icon;
-    const GamesIcon = settings['games'].icon;
+    const FireIcon = settings['fire-alarm'].icon;
 
     return (
       <Block style={styles.dashboard}>
@@ -36,17 +36,7 @@ class Dashboard extends Component {
           <Block flex={1.5} row style={{ alignItems: 'flex-end', }}>
             
           </Block>
-          <Block flex column>
-       
-            <LineChart
-              yMax={100}
-              yMin={0}
-              data={[0, 20, 25, 15, 20, 55, 60]}
-              style={{ flex: 0.8 }}
-              curve={shape.curveNatural}
-              svg={{ stroke: theme.colors.accent, strokeWidth: 3 }}
-            />
-          </Block>
+         
         </Block>
 
         <ScrollView contentContainerStyle={styles.buttons} showsVerticalScrollIndicator={false}>
@@ -54,7 +44,7 @@ class Dashboard extends Component {
             <Block row space="around" style={{ marginVertical: theme.sizes.base }}>
               <TouchableOpacity
                 activeOpacity={0.8}
-                onPress={() => navigation.navigate('WatchPage', { name: 'watch' })}
+                onPress={() => navigation.navigate('ClockPage', { name: 'clock' })}
               >
                 <Block center middle style={styles.button}>
                   <WatchIcon size={60} />
@@ -62,7 +52,7 @@ class Dashboard extends Component {
                     button
                     style={{ marginTop: theme.sizes.base * 0.5 }}
                   >
-                    {settings['watch'].name}
+                    {settings['clock'].name}
                   </Text>
                 </Block>
               </TouchableOpacity>
@@ -89,12 +79,12 @@ class Dashboard extends Component {
                 onPress={() => navigation.navigate('WeatherPage', { name: 'weater' })}
               >
                 <Block center middle style={styles.button}>
-                  <WeaterIcon size={60} />
+                  <WeatherIcon size={60} />
                   <Text
                     button
                     style={{ marginTop: theme.sizes.base * 0.5 }}
                   >
-                    {settings['weater'].name}
+                    {settings['weather'].name}
                   </Text>
                 </Block>
               </TouchableOpacity>
@@ -133,15 +123,15 @@ class Dashboard extends Component {
               
               <TouchableOpacity
                 activeOpacity={0.8}
-                onPress={() => navigation.navigate('GamePage', { name: 'games' })}
+                onPress={() => navigation.navigate('AlarmPage', { name: 'fire-alarm' })}
               >
                 <Block center middle style={styles.button}>
-                  <GamesIcon size={60} />
+                  <FireIcon size={60} />
                   <Text
                     button
                     style={{ marginTop: theme.sizes.base * 0.5 }}
                   >
-                    {settings['games'].name}
+                    {settings['fire-alarm'].name}
                   </Text>
                 </Block>
               </TouchableOpacity>
